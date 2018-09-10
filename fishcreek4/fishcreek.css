@@ -16,6 +16,7 @@ header {
 h1 {
 	line-height: 250%;
 	text-indent: 1em;
+	margin-bottom: 0;
 }
 
 nav {
