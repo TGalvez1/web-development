@@ -1,0 +1,61 @@
+<html>
+	<head>
+		<title>JavaScript Form</title>
+		<script>
+			function validateForm() {
+				if(document.forms[0].userName.value == "") {
+					if(document.forms[0].email.value == "") {
+						alert("You must fill out the form before submitting");
+						return false;
+					}
+					else if(!document.forms[0].email.value.includes("@")) {
+						alert("You must enter your name and a valid e-mail address");
+						return false;
+					}
+					
+					else {
+						alert("You must enter a name");
+						return false;
+					}
+				}
+				else if(document.forms[0].email.value == "") {
+					alert("You must enter an e-mail address");
+					return false;
+				}
+				else if(!document.forms[0].email.value.includes("@")) {
+					alert("You must enter a valid e-mail address");
+					return false;
+				}
+				else {
+					alert("Form submitted successfully")
+					return true;
+				}
+			}
+		</script>
+		<style>
+			body {
+				margin-top: 25px;
+				margin-left: 15%;
+			}
+			label { 
+				float: left;
+				width: 7em;
+				padding-right: 1em;
+				text-align: right;
+			}
+			
+			#submit {
+				margin-left: 128px;
+			}
+		</style>
+	</head>
+	<body>
+		<form method="post" action="http://www.markmurtha.com/csis128/readform.asp" onsubmit="return validateForm();">
+			<label for="userName">Name: </label><input type="text" name="userName">
+			<br>
+			<label for="email">E-Mail Address: </label><input type="text" name="email">
+			<br>
+			<input type="submit" value="Sign Up Now" id="submit">
+		</form>
+	</body>
+</html>
