@@ -1,0 +1,110 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Analytical Typing Signup</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+	<script>
+		function validateForm() {
+			var radio = document.getElementsByName('log_sign');
+			var password = document.forms[0].passw.value;
+			var check = document.forms[0].conf_pass.value;
+			var email = document.forms[0].email.value;
+			if(radio[0].checked) {
+				if(email == "") {
+					if(password == "") {
+						alert("You must fill out the form before submitting it!");
+						return false;
+					}
+					else {
+						alert("You must enter your email to login!");
+						return false;
+					}
+				}
+				else if (!email.includes("@")) {
+					alert("You must enter a valid email address to login!");
+					return false;
+				}
+				else {
+					if(password == "") {
+						alert("Now I know I can't check if this is the right password, but you should atleast try!");
+						return false;
+					}
+					else {
+						alert("I can't prove you entered the right password, but atleast you entered one!");
+						return true;
+					}
+				}
+			}
+			else {
+				if(email == "") {
+					if(password == "") {
+						alert("You must fill out the form before submitting it!");
+						return false;
+					}
+					else {
+						alert("You must enter your email to sign-up!");
+						return false;
+					}
+				}
+				else if (!email.includes("@")) {
+					alert("You must enter a valid email address to sign-up!");
+					return false;
+				}
+				else {
+					if(password == "") {
+						alert("Now I know I can't check if this is the right password, but you should atleast try!");
+						return false;
+					}
+					else {
+						if(check == "") {
+							alert("Please re-enter your password to sign-up.");
+							return false;
+						}
+						else if (!password == check) {
+							alert("Please re-enter the same password to sign-up.");
+							return false;
+						}
+						else {
+							return true;
+						}	
+					}
+				}
+			}
+		}
+	</script>
+  </head>
+  <body>
+    <header>
+     <h1>A-Typing</h1>
+    </header>
+	<nav>
+		<ul>
+			<li><a href="index.html">Home</a></li><li><a href="game.html">Typing Games</a></li><li><a href="help.html">Help</a></li><span id="nav_right"><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="signup.html" class="active">Sign-Up/Login</a></li></span>
+		</ul>
+	</nav>
+	<main>
+		<div style="text-align: center;">
+			<p>This is the Sign-Up/Login page. You can select whether you would like to login or sign-up here.</p>
+			<p>If you are hesitant, it's only $10/century. The first century is free.</p>
+		</div>
+		<div style="margin-left: 39%;">
+			<form id="form" onsubmit="return validateForm();">
+				<input type="radio" name="log_sign" value="login" checked>Login<br>
+				<input type="radio" name="log_sign" value="signup">Sign-Up<br>
+				Email:<br>
+				<input type="text" name="email"><br>
+				Password:<br>
+				<input type="text" name="passw"><br>
+				Confirm Password:<br>
+				<input type="text" name="conf_pass"><br>
+				<input type="submit" value="Submit">
+			</form>
+		</div>
+	</main>
+	<footer>
+		<p>Contact: <a href="mailto:S1464596@student.mcckc.edu">S1464596@student.mcckc.edu</a></p>
+		<p>Created At: 10/8/2018</p>
+	</footer>
+  </body>
+</html>
