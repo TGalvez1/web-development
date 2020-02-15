@@ -1,4 +1,4 @@
-import mysql.connector
+from mysql.connector import connect
 import os
 """
 Plan:
@@ -117,6 +117,9 @@ def updateBook(conn):
     menu(conn)
 
 def showBooks(conn):
+    """
+    Shows all books currently available in the library.
+    """
     cursor = conn.cursor()
     os.system("cls")
     cursor.execute("SELECT * FROM books;")
@@ -143,6 +146,9 @@ def showBooks(conn):
     menu(conn)
 
 def showUsers(conn):
+    """
+    Shows users that are currently in the database.
+    """
     cursor = conn.cursor()
     os.system("cls")
     cursor.execute("SELECT user_id,username FROM users;")
@@ -158,6 +164,12 @@ def showUsers(conn):
     menu(conn)
 
 def menu(conn):
+    """
+    
+    Create a menu for users to select through various options.
+
+    """
+    
     os.system("cls")
     print("Welcome to your public library database")
     print("You can access, update, and see return information for ALL books and users")
@@ -195,5 +207,5 @@ def menu(conn):
 
 
 if __name__ == "__main__":
-    conn = mysql.connector.connect(user="root", password="",host="127.0.0.1",port=3306,database="sql_project")
+    conn = connect(user="root", password="",host="127.0.0.1",port=3306,database="sql_project")
     menu(conn)
